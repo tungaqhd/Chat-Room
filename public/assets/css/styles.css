@@ -1,0 +1,32 @@
+.chatbox {
+    max-width: 70%;
+    margin: 10px auto;
+    height: 800px;
+}
+.chatbox p {
+    font-size: 13px !important;
+}
+.avatar-big {
+    max-width: 300px;
+    max-height: 300px;;
+    margin: 10px;
+}
+.avatar {
+    max-width: 100%;
+}
+.username {
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    color: #B85E39;
+}
+.message-content {
+    display: block;
+}
+.date {
+    text-align: right;
+}
+.profilebox {
+    max-width: 70%;
+    margin: 10px auto;
+}
