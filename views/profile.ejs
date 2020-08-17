@@ -28,24 +28,6 @@
       href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
       rel="stylesheet"
     />
-    <!-- Nucleo Icons -->
-    <link
-      href="<%=config['baseUrl']%>assets/css/nucleo-icons.css"
-      rel="stylesheet"
-    />
-    <link
-      href="<%=config['baseUrl']%>assets/css/nucleo-svg.css"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome Icons -->
-    <link
-      href="<%=config['baseUrl']%>assets/css/font-awesome.css"
-      rel="stylesheet"
-    />
-    <link
-      href="<%=config['baseUrl']%>assets/css/nucleo-svg.css"
-      rel="stylesheet"
-    />
     <!-- CSS Files -->
     <link
       href="<%=config['baseUrl']%>assets/css/argon-design-system.css?v=1.2.0"
@@ -147,14 +129,14 @@
               method="POST"
               enctype="multipart/form-data"
             >
-            <div class="text-center">
+              <div class="text-center">
                 <img
                   src="<%=config['baseUrl']%>assets/img/avatar/<%=config['user']['avatar']%>"
                   class="avatar-big"
                 />
-            </div>
-            <div class="custom-file">
-                <input type="file" name="avatar">
+              </div>
+              <div class="custom-file">
+                <input type="file" name="avatar" />
                 <!-- <label class="custom-file-label" for="avatar">Choose Avatar</label> -->
               </div>
               <label for="username">Username</label>
@@ -276,6 +258,5 @@
       src="<%=config['baseUrl']%>assets/js/argon-design-system.min.js?v=1.2.0"
       type="text/javascript"
     ></script>
-
   </body>
 </html>
