@@ -12,6 +12,10 @@ exports.index = async (req, res) => {
     name: process.env.NAME,
     user: user || false
   };
+
+  if(req.query.msg) {
+    config.message = req.query.msg
+  }
   res.render("profile", { config });
 };
 
@@ -30,7 +34,7 @@ exports.update = async (req, res) => {
         return res.redirect('/profile?msg=invalid');
       }
 
-      if(username.length<5 || username.length>10 || !/[a-z0-9_][^-\s]/.test(username)) {
+      if(username.length<5 || username.length>10 || /[^a-z0-9_]/i.test(username)) {
         return res.redirect('/profile?msg=invalid username');
       }
       if(name.length<5 || name.length>100) {
@@ -78,8 +82,8 @@ exports.update = async (req, res) => {
 };
 
 exports.view = async(req, res) => {
-  const userId = req.params.userId;
-  const user = await User.findById(userId);
+  const username = req.params.username;
+  const user = await User.findOne({username: username});
 
   if(!user) {
     res.status(404).send('<h1>User not found!</h1>');

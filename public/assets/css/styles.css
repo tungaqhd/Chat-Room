@@ -12,7 +12,9 @@
     margin: 10px;
 }
 .avatar {
+    min-width: 40px;
     max-width: 100%;
+    height: auto;
 }
 .username {
     font-weight: bold;
@@ -29,4 +31,7 @@
 .profilebox {
     max-width: 70%;
     margin: 10px auto;
+}
+.message {
+    margin: 5px;
 }

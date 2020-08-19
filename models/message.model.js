@@ -2,14 +2,27 @@ const mongoose = require("mongoose");
 
 const messageSchema = mongoose.Schema(
   {
-    username: {
-      type: String,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users',
       required: true,
     },
     message: {
       type: String,
       required: true,
     },
+    username: {
+      type: String,
+      required: true
+    },
+    avatar: {
+      type: String,
+      required: true
+    },
+    time: {
+      type: String,
+      required: true
+    }
   },
   { timestamps: true }
 );

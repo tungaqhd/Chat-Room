@@ -8,6 +8,9 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
+const xss = require("xss");
+const moment = require('moment');
 
 const app = express();
 const server = http.createServer(app);
@@ -34,14 +37,20 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, done) {
       process.nextTick(async function () {
-          const user = await User.findOne({facebookId: profile.id});
-          if(user) {
-            return done(null, user);
-          } else {
-            const user = User({facebookId: profile.id, username: `user_${profile.id}`, name: profile.displayName});
-              await user.save();
-              return done(null, user);
-          }
+        const user = await User.findOne({ facebookId: profile.id });
+        if (user) {
+          return done(null, user);
+        } else {
+          const user = User({
+            facebookId: profile.id,
+            username: `user_${profile.id}`,
+            name: profile.displayName,
+          });
+          let token = jwt.sign({ id: user._id }, process.env.JWT_TOKEN);
+          user.token = token;
+          await user.save();
+          return done(null, user);
+        }
         return done(null, profile);
       });
     }
@@ -52,7 +61,7 @@ app.use(
     secret: "asjnakjsnakjsmnaolksnaijsbajhsnbkasbujahs",
     key: "sid",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 app.use(passport.initialize());
@@ -69,7 +78,7 @@ io.on("connection", (socket) => {
     io.to("home").emit("updateOnline", totalOnline);
   });
 
-  socket.on("sendMessage", async (username, message) => {
+  socket.on("sendMessage", async (payload, message) => {
     if (message.length > 200) {
       io.to("home").emit(
         "alert",
@@ -77,10 +86,19 @@ io.on("connection", (socket) => {
         "Maximum length of message is 200 characters!"
       );
     } else {
-      const messageSave = Message({ username, message });
+      let user;
+      try {
+        let token = jwt.verify(payload, process.env.JWT_TOKEN);
+        user = await User.findById(token.id);
+      } catch (e) {
+        console.log(e);
+      }
+      message = xss(message);
+      let timer = moment().format('MMMM Do YYYY, h:mm:ss a');
+      const messageSave = Message({userId: user._id, message, username: user.username, avatar: user.avatar, time: timer});
       await messageSave.save();
 
-      io.to("home").emit("receiveMessage", username, message, new Date());
+      io.to("home").emit("receiveMessage", user.username, message, timer, user.avatar);
     }
   });
 
