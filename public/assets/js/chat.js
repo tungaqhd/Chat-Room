@@ -10,7 +10,7 @@ socket.on('receiveMessage', (username, messagge, timestamp, avatar) => {
     <div class="row">
       <div class="col-md-1 avatar-box">
         <img
-          src="http://localhost:3000/assets/img/avatar/${avatar}"
+          src="/assets/img/avatar/${avatar}"
           class="avatar"
         />
       </div>
