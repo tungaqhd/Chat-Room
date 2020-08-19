@@ -114,6 +114,6 @@ app.set("view engine", "ejs");
 const routers = require("./routes/index.route");
 app.use(routers);
 
-server.listen(process.env.PORT, () =>
-  console.log(`App is listening on port ${process.env.PORT}`)
+server.listen(process.env.PORT || 3000, () =>
+  console.log(`App is listening`)
 );
