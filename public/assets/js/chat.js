@@ -26,7 +26,7 @@ socket.on("receiveMessage", (username, messagge, timestamp, avatar) => {
     </div>
   </div>
     `);
-  $("#messages").scrollTop(500);
+    $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
 });
 
 $("#send").click(() => {
