@@ -133,15 +133,18 @@
 
             <div class="row text-center">
                 <div class="col-md-6">
-                    <p><b>Username</b>: <%=config['user']['username']%></p>
+                    <p><b>Username</b>: <a href="<%=config['user']['username']%>"><%=config['user']['username']%></a></p>
                     <p><b>Name</b>: <%=config['user']['name']%></p>
                     <p><b>Contact</b>: <%=config['user']['username']%></p>
                 </div>
                 <div class="col-md-6">
-                    <p><b>Website</b>: <%=config['user']['website']%></p>
-                    <p><b>Description</b>: <%=config['user']['description']%></p>
+                  <p><b>Website</b>: <a href="<%=config['user']['website']%>"><%=config['user']['website']%></a></p>
+                  <p><b>Website</b>: <a href="<%=config['user']['facebook']%>"><%=config['user']['facebook']%></a></p>
+                  <p><b>Website</b>: <a href="<%=config['user']['twitter']%>"><%=config['user']['twitter']%></a></p>
+                  <p><b>Website</b>: <a href="<%=config['user']['instagram']%>"><%=config['user']['instagram']%></a></p>
                 </div>
             </div>
+            <p><b>Description</b>: <%=config['user']['description']%></p>
           </div>
         </div>
       </div>

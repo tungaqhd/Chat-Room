@@ -27,6 +27,15 @@ const userSchema = mongoose.Schema({
         type: String,
         default: 'user.png'
     },
+    facebook: {
+        type: String
+    },
+    twitter: {
+        type: String
+    },
+    instagram: {
+        type: String
+    },
     token: {
         type: String
     }
