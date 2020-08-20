@@ -20,6 +20,8 @@ const passport = require("passport");
 const FacebookStrategy = require("passport-facebook").Strategy;
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const linkifyHtml = require('linkifyjs/html');
+
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
@@ -94,6 +96,9 @@ io.on("connection", (socket) => {
         console.log(e);
       }
       message = xss(message);
+      message = linkifyHtml(message, {
+        defaultProtocol: 'https'
+      });
       let timer = moment().format('MMMM Do YYYY, h:mm:ss a');
       const messageSave = Message({userId: user._id, message, username: user.username, avatar: user.avatar, time: timer});
       await messageSave.save();

@@ -19,6 +19,7 @@
     "express-session": "^1.17.1",
     "formidable": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
+    "linkifyjs": "^2.1.9",
     "moment": "^2.27.0",
     "mongoose": "^5.10.0",
     "passport": "^0.4.1",
