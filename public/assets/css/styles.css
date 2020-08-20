@@ -1,37 +1,42 @@
 .chatbox {
-    max-width: 70%;
-    margin: 10px auto;
-    height: 800px;
+  max-width: 70%;
+  margin: 10px auto;
+  height: 800px;
 }
 .chatbox p {
-    font-size: 13px !important;
+  font-size: 13px !important;
 }
 .avatar-big {
-    max-width: 300px;
-    max-height: 300px;;
-    margin: 10px;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 10px;
 }
 .avatar {
-    min-width: 40px;
-    max-width: 100%;
-    height: auto;
+  min-width: 40px;
+  max-width: 100%;
+  height: auto;
 }
 .username {
-    font-weight: bold;
-    display: block;
-    text-decoration: none;
-    color: #B85E39;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  color: #b85e39;
 }
 .message-content {
-    display: block;
+  display: block;
 }
 .date {
-    text-align: right;
+  text-align: right;
 }
 .profilebox {
-    max-width: 70%;
-    margin: 10px auto;
+  max-width: 70%;
+  margin: 10px auto;
 }
 .message {
-    margin: 5px;
+  margin: 5px;
+}
+#messages {
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
