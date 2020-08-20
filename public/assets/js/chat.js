@@ -1,11 +1,11 @@
-const socket = io()
+const socket = io();
 
-socket.on('updateOnline', (totalOnline) => {
-    $('#totalOnline').text(totalOnline);
+socket.on("updateOnline", (totalOnline) => {
+  $("#totalOnline").text(totalOnline);
 });
 
-socket.on('receiveMessage', (username, messagge, timestamp, avatar) => {
-    $('#messages').append(`
+socket.on("receiveMessage", (username, messagge, timestamp, avatar) => {
+  $("#messages").append(`
     <div class="message">
     <div class="row">
       <div class="col-md-1 avatar-box">
@@ -26,10 +26,11 @@ socket.on('receiveMessage', (username, messagge, timestamp, avatar) => {
     </div>
   </div>
     `);
+  $("#messages").scrollTop(500);
 });
 
-$('#send').click(() => {
-    const message = $('#message').val();
-    $('#message').val('');
-    socket.emit('sendMessage', token, message)
-})
+$("#send").click(() => {
+  const message = $("#message").val();
+  $("#message").val("");
+  socket.emit("sendMessage", token, message);
+});
