@@ -29,6 +29,12 @@ socket.on("receiveMessage", (username, messagge, timestamp, avatar) => {
     $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
 });
 
+function sendMsg(e) {
+  e.preventDefault();
+  const message = $("#message").val();
+  $("#message").val("");
+  socket.emit("sendMessage", token, message);
+}
 $("#send").click(() => {
   const message = $("#message").val();
   $("#message").val("");
