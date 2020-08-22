@@ -10,4 +10,9 @@ route.use('/auth', authRoute);
 const profileRoute = require('./profile.route');
 route.use('/profile', profileRoute);
 
+const pageRoute = require('./page.route');
+route.use('/page', pageRoute);
+
+const sitemapController = require('../controllers/sitemapController');
+route.get('/sitemap.xml', sitemapController.index);
 module.exports = route;

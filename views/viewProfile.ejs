@@ -131,17 +131,18 @@
                 />
             </div>
 
-            <div class="row text-center">
+            <div class="row" style="padding: 5px 50px;">
+              <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <p><b>Username</b>: <a href="<%=config['user']['username']%>"><%=config['user']['username']%></a></p>
                     <p><b>Name</b>: <%=config['user']['name']%></p>
                     <p><b>Contact</b>: <%=config['user']['contact']%></p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <p><b>Website</b>: <a href="<%=config['user']['website']%>"><%=config['user']['website']%></a></p>
-                  <p><b>Website</b>: <a href="<%=config['user']['facebook']%>"><%=config['user']['facebook']%></a></p>
-                  <p><b>Website</b>: <a href="<%=config['user']['twitter']%>"><%=config['user']['twitter']%></a></p>
-                  <p><b>Website</b>: <a href="<%=config['user']['instagram']%>"><%=config['user']['instagram']%></a></p>
+                  <p><b>Facebook</b>: <a href="<%=config['user']['facebook']%>"><%=config['user']['facebook']%></a></p>
+                  <p><b>Twitter</b>: <a href="<%=config['user']['twitter']%>"><%=config['user']['twitter']%></a></p>
+                  <p><b>Instagram</b>: <a href="<%=config['user']['instagram']%>"><%=config['user']['instagram']%></a></p>
                 </div>
             </div>
             <h5 class="text-center">Description</h5>
@@ -164,13 +165,13 @@
             <div class="col-md-6">
               <ul class="nav nav-footer justify-content-end">
                 <li class="nav-item">
-                  <a href="" class="nav-link" target="_blank">About Us</a>
+                  <a href="/page/about" class="nav-link" target="">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link" target="_blank">Blog</a>
+                  <a href="/page/contact" class="nav-link" target="">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link" target="_blank">License</a>
+                  <a href="/page/privacy-policy" class="nav-link" target="">Privacy Policy</a>
                 </li>
               </ul>
             </div>
