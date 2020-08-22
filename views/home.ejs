@@ -153,13 +153,21 @@
             </div>
             <% if(config['user']) { %>
             <div id="editor">
-              <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-              </div>
-              <button class="btn btn-success" id="send">
-                <i class="far fa-paper-plane"></i> Send
-              </button>
+              <form onsubmit="sendMsg('event');">
+                <label for="username">Your message</label>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="message"
+                    minlength="1"
+                    maxlength="200"
+                  />
+                </div>
+                <button class="btn btn-success" id="send">
+                  <i class="far fa-paper-plane"></i> Send
+                </button>
+              </form>
             </div>
             <% } else { %>
             <b>Please login to join the chat</b>
