@@ -9,16 +9,16 @@ exports.index = async (req, res) => {
     "    <loc>"+process.env.URL+"</loc>",
     "  </url>",
     "  <url>",
-    "    <loc>"+process.env.URL+"page/about</loc>",
+    "    <loc>"+process.env.URL+"about</loc>",
     "  </url>",
     "  <url>",
-    "    <loc>"+process.env.URL+"page/about</loc>",
+    "    <loc>"+process.env.URL+"about</loc>",
     "  </url>",
     "  <url>",
-    "    <loc>"+process.env.URL+"page/privacy-policy</loc>",
+    "    <loc>"+process.env.URL+"privacy-policy</loc>",
     "  </url>",
     "  <url>",
-    "    <loc>"+process.env.URL+"page/terms</loc>",
+    "    <loc>"+process.env.URL+"terms</loc>",
     "  </url>"
   ];
 
