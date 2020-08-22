@@ -107,7 +107,10 @@ exports.update = async (req, res) => {
         user.avatar = `${user["_id"]}.${ext}`;
       }
 
-      user.username = xss(username);
+      if(user.username !== username) {
+        user.username = xss(username);
+        user.changedUsername = true;
+      }
       user.name = xss(name);
       user.contact = xss(contact);
       user.website = xss(website);

@@ -38,6 +38,10 @@ const userSchema = mongoose.Schema({
     },
     token: {
         type: String
+    },
+    changedUsername: {
+        type: Boolean,
+        default: false
     }
 }, {timestamps: true});
 

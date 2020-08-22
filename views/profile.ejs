@@ -143,17 +143,15 @@
                 <input type="file" name="avatar" />
                 <!-- <label class="custom-file-label" for="avatar">Choose Avatar</label> -->
               </div>
+              <% if(!config['user']['changedUsername']) { %>
+                <div class="alert alert-warning text-center">You can change your username 1 time</div>
+              <% } %>
               <label for="username">Username</label>
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="username"
-                  value="<%=config['user']['username']%>"
-                  minlength="5"
-                  maxlength="10"
-                  required
-                />
+                <input type="text" class="form-control" name="username"
+                value="<%=config['user']['username']%>" minlength="5"
+                maxlength="10" required
+                <%=(!config['user']['changedUsername'])?'disabled':''%> />
               </div>
               <label for="username">Name</label>
               <div class="form-group">
