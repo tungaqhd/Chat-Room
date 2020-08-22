@@ -151,7 +151,7 @@
                 <input type="text" class="form-control" name="username"
                 value="<%=config['user']['username']%>" minlength="5"
                 maxlength="10" required
-                <%=(!config['user']['changedUsername'])?'disabled':''%> />
+                <%=(config['user']['changedUsername'])?'disabled':''%> />
               </div>
               <label for="username">Name</label>
               <div class="form-group">
