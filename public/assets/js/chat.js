@@ -4,9 +4,9 @@ socket.on("updateOnline", (totalOnline) => {
   $("#totalOnline").text(totalOnline);
 });
 
-socket.on("receiveMessage", (username, messagge, timestamp, avatar) => {
+socket.on("receiveMessage", (username, messagge, timestamp, avatar, messageId) => {
   $("#messages").append(`
-    <div class="message">
+    <div id="${messageId}" class="message">
     <div class="row">
       <div class="col-md-1 avatar-box">
         <img
@@ -40,3 +40,10 @@ $("#send").click(() => {
   $("#message").val("");
   socket.emit("sendMessage", token, message);
 });
+function deleteMsg(id) {
+  socket.emit("deleteMsg", token, id);
+}
+
+socket.on("updateDeletedMessage", (id) => {
+  $('#'+id).remove();
+})

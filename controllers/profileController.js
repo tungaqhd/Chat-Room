@@ -130,13 +130,13 @@ exports.view = async (req, res) => {
   const username = req.params.username;
   const user = await User.findOne({ username: username });
 
-  if (!user) {
-    res.status(404).send("<h1>User not found!</h1>");
-  }
   const config = {
     baseUrl: process.env.URL,
     name: process.env.NAME,
     user: user,
   };
+  if (!user) {
+    return res.status(404).render("404", {config});
+  }
   res.render("viewProfile", { config });
 };

@@ -80,6 +80,23 @@ io.on("connection", (socket) => {
     io.to("home").emit("updateOnline", totalOnline);
   });
 
+  socket.on("deleteMsg", async(payload, id) => {
+    let user;
+    try {
+      let token = jwt.verify(payload, process.env.JWT_TOKEN);
+      user = await User.findById(token.id);
+    } catch (e) {
+      console.log(e);
+    }
+
+    let message = await Message.findById(id);
+    if(message && message.userId == user._id) {
+      await Message.findByIdAndDelete(id);
+      io.to("home").emit("updateDeletedMessage", id);
+      console.log('xoa');
+    }
+  })
+
   socket.on("sendMessage", async (payload, message) => {
     if (message.length > 200) {
       io.to("home").emit(
@@ -103,7 +120,7 @@ io.on("connection", (socket) => {
       const messageSave = Message({userId: user._id, message, username: user.username, avatar: user.avatar, time: timer});
       await messageSave.save();
 
-      io.to("home").emit("receiveMessage", user.username, message, timer, user.avatar);
+      io.to("home").emit("receiveMessage", user.username, message, timer, user.avatar, messageSave._id);
     }
   });
 

@@ -1,7 +1,10 @@
-.chatbox {
+.chatboxCustom {
   max-width: 70%;
-  margin: 10px auto;
+  margin: 0 auto;
   height: 800px;
+}
+.card {
+  margin: 0 auto;
 }
 .chatbox p {
   font-size: 13px !important;
@@ -39,4 +42,13 @@
   height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+@media screen and (max-width: 499px) {
+  .chatboxCustom {
+    max-width: 95%;
+  }
+  .profilebox {
+    max-width: 95%;
+  }
 }

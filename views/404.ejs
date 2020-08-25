@@ -119,81 +119,7 @@
 
     <!-- End Navbar -->
     <div class="wrapper">
-      <div class="chatboxCustom">
-        <div class="card">
-          <div class="card-header">
-            <i class="far fa-lightbulb" style="color: #ffc274;"></i> Online:
-            <span id="totalOnline"></span>
-          </div>
-          <div class="card-body">
-            <div id="messages">
-              <% config['lastMessages'].forEach(message => { %>
-              <div id="<%=message._id%>" class="message">
-                <div class="row">
-                  <div class="col-md-1 avatar-box">
-                    <img
-                      src="/assets/img/avatar/<%=message.avatar%>"
-                      class="avatar"
-                    />
-                  </div>
-                  <div class="col-md-9">
-                    <a class="username" href="/profile/<%=message.username%>"
-                      ><%=message.username%></a
-                    >
-                    <span class="message-content">
-                      <%-message.message%>
-                    </span>
-                  </div>
-                  <div class="col-md-2">
-                    <p class="date">
-                      <%=message.time%> | <% if(config['user']['_id'] ===
-                      message.userId) { %>
-                      <button onclick="deleteMsg('<%=message._id%>')">
-                        <i class="far fa-trash-alt"></i>
-                      </button>
-                      <% } %>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <% }); %>
-            </div>
-            <% if(config['user']) { %>
-            <div id="editor">
-              <form onsubmit="sendMsg(event);">
-                <label for="username">Your message</label>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="message"
-                    id="message"
-                    minlength="1"
-                    maxlength="200"
-                  />
-                </div>
-                <button class="btn btn-success" id="send">
-                  <i class="far fa-paper-plane"></i> Send
-                </button>
-              </form>
-            </div>
-            <% } else { %>
-            <b>Please login to join the chat</b>
-            <% } %>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="max-width: 90%; margin: 0 auto;">
-        <div class="card-header"><h3>Content</h3></div>
-        <div class="card-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
-            deserunt perferendis, neque corrupti veniam animi soluta dolorum
-            suscipit rerum voluptas minus omnis aliquid ducimus voluptatibus
-            doloribus culpa hic fugit voluptatum?
-          </p>
-        </div>
-      </div>
+      <h1>The page you are looking for does not exist!</h1>
       <br /><br />
       <footer class="footer">
         <div class="container">
@@ -215,12 +141,12 @@
                   <a href="contact" class="nav-link" target="">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a href="privacy-policy" class="nav-link" target=""
-                    >Privacy Policy</a
-                  >
+                  <a href="privacy-policy" class="nav-link" target="">Privacy Policy</a>
                 </li>
                 <li class="nav-item">
-                  <a href="terms" class="nav-link" target="">Terms</a>
+                  <a href="terms" class="nav-link" target=""
+                    >Terms</a
+                  >
                 </li>
               </ul>
             </div>
@@ -253,10 +179,5 @@
       src="<%=config['baseUrl']%>assets/js/argon-design-system.min.js?v=1.2.0"
       type="text/javascript"
     ></script>
-    <script>
-      const token = "<%=config['user']['token']%>";
-    </script>
-    <script src="socket.io/socket.io.js"></script>
-    <script src="assets/js/chat.js"></script>
   </body>
 </html>
