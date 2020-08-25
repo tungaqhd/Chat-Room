@@ -5,6 +5,10 @@ socket.on("updateOnline", (totalOnline) => {
 });
 
 socket.on("receiveMessage", (username, messagge, timestamp, avatar, messageId) => {
+  let btn = '';
+  if(username == user) {
+    btn = `<button onclick="deleteMsg('${messageId}')"><i class="far fa-trash-alt"></i></button>`;
+  }
   $("#messages").append(`
     <div id="${messageId}" class="message">
     <div class="row">
@@ -21,7 +25,7 @@ socket.on("receiveMessage", (username, messagge, timestamp, avatar, messageId) =
         </span>
       </div>
       <div class="col-md-2">
-        <p class="date">${timestamp}</p>
+        <p class="date">${timestamp} ${btn}</p>
       </div>
     </div>
   </div>
@@ -35,11 +39,6 @@ function sendMsg(e) {
   $("#message").val("");
   socket.emit("sendMessage", token, message);
 }
-$("#send").click(() => {
-  const message = $("#message").val();
-  $("#message").val("");
-  socket.emit("sendMessage", token, message);
-});
 function deleteMsg(id) {
   socket.emit("deleteMsg", token, id);
 }

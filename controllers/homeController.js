@@ -1,5 +1,6 @@
 const Message = require("../models/message.model");
 const moment = require("moment");
+const User = require("../models/user.model");
 exports.index = async (req, res) => {
   try {
     const config = {

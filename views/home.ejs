@@ -146,11 +146,9 @@
                   </div>
                   <div class="col-md-2">
                     <p class="date">
-                      <%=message.time%> | <% if(config['user']['_id'] ===
-                      message.userId) { %>
-                      <button onclick="deleteMsg('<%=message._id%>')">
-                        <i class="far fa-trash-alt"></i>
-                      </button>
+                      <%-message.time%>
+                      <% if(config['user']['_id']+'' == message.userId+'') { %>
+                      <button onclick="deleteMsg('<%=message._id%>')"><i class="far fa-trash-alt"></i></button>
                       <% } %>
                     </p>
                   </div>
@@ -255,6 +253,7 @@
     ></script>
     <script>
       const token = "<%=config['user']['token']%>";
+      const user = "<%=config['user']['username']%>";
     </script>
     <script src="socket.io/socket.io.js"></script>
     <script src="assets/js/chat.js"></script>

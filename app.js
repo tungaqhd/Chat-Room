@@ -90,10 +90,9 @@ io.on("connection", (socket) => {
     }
 
     let message = await Message.findById(id);
-    if(message && message.userId == user._id) {
+    if(message && user && message.userId+'' === user._id+'') {
       await Message.findByIdAndDelete(id);
       io.to("home").emit("updateDeletedMessage", id);
-      console.log('xoa');
     }
   })
 
